@@ -1,0 +1,29 @@
+<h1>Listing birds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @birds.each do |bird| %>
+      <tr>
+        <td><%= bird.name %></td>
+        <td><%= bird.age %></td>
+        <td><%= link_to 'Show', bird %></td>
+        <td><%= link_to 'Edit', edit_bird_path(bird) %></td>
+        <td><%= link_to 'Destroy', bird, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bird', new_bird_path %>
